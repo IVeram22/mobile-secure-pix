@@ -1,0 +1,779 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		20F39D8A12CF296EFACBD327 /* Pods_mobile_secure_pixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00DA863ED8CF79A3FF8D01BF /* Pods_mobile_secure_pixTests.framework */; };
+		2AC6E1C52AF29DF4009866C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E1C42AF29DF4009866C4 /* AppDelegate.swift */; };
+		2AC6E1C72AF29DF4009866C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E1C62AF29DF4009866C4 /* SceneDelegate.swift */; };
+		2AC6E1C92AF29DF4009866C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E1C82AF29DF4009866C4 /* ViewController.swift */; };
+		2AC6E1CE2AF29DF6009866C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AC6E1CD2AF29DF6009866C4 /* Assets.xcassets */; };
+		2AC6E1D12AF29DF6009866C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AC6E1CF2AF29DF6009866C4 /* LaunchScreen.storyboard */; };
+		2AC6E1DC2AF29DF6009866C4 /* mobile_secure_pixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E1DB2AF29DF6009866C4 /* mobile_secure_pixTests.swift */; };
+		2AC6E1E62AF29DF6009866C4 /* mobile_secure_pixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E1E52AF29DF6009866C4 /* mobile_secure_pixUITests.swift */; };
+		2AC6E1E82AF29DF6009866C4 /* mobile_secure_pixUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E1E72AF29DF6009866C4 /* mobile_secure_pixUITestsLaunchTests.swift */; };
+		AAD07916AA66DFC80C940202 /* Pods_mobile_secure_pix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764EE97F73F153A12A6270E7 /* Pods_mobile_secure_pix.framework */; };
+		AE1F9D7D375856C09C0E33F9 /* Pods_mobile_secure_pix_mobile_secure_pixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA7A00AAEB3C56A16AFB80FB /* Pods_mobile_secure_pix_mobile_secure_pixUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2AC6E1D82AF29DF6009866C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AC6E1B92AF29DF4009866C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2AC6E1C02AF29DF4009866C4;
+			remoteInfo = "mobile-secure-pix";
+		};
+		2AC6E1E22AF29DF6009866C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AC6E1B92AF29DF4009866C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2AC6E1C02AF29DF4009866C4;
+			remoteInfo = "mobile-secure-pix";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00DA863ED8CF79A3FF8D01BF /* Pods_mobile_secure_pixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobile_secure_pixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0621584362EE0568195E65DA /* Pods-mobile-secure-pixTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-secure-pixTests.release.xcconfig"; path = "Target Support Files/Pods-mobile-secure-pixTests/Pods-mobile-secure-pixTests.release.xcconfig"; sourceTree = "<group>"; };
+		2AC6E1C42AF29DF4009866C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2AC6E1C62AF29DF4009866C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2AC6E1C82AF29DF4009866C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2AC6E1CD2AF29DF6009866C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2AC6E1D02AF29DF6009866C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2AC6E1D22AF29DF6009866C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AC6E1DB2AF29DF6009866C4 /* mobile_secure_pixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mobile_secure_pixTests.swift; sourceTree = "<group>"; };
+		2AC6E1E52AF29DF6009866C4 /* mobile_secure_pixUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mobile_secure_pixUITests.swift; sourceTree = "<group>"; };
+		2AC6E1E72AF29DF6009866C4 /* mobile_secure_pixUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mobile_secure_pixUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2AC6E1F42AF2A37C009866C4 /* mobile-secure-pix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mobile-secure-pix.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AC6E1F52AF2A37C009866C4 /* mobile-secure-pixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mobile-secure-pixTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AC6E1F62AF2A37C009866C4 /* mobile-secure-pixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mobile-secure-pixUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		59BA3C5A968609101CB215CD /* Pods-mobile-secure-pix-mobile-secure-pixUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-secure-pix-mobile-secure-pixUITests.release.xcconfig"; path = "Target Support Files/Pods-mobile-secure-pix-mobile-secure-pixUITests/Pods-mobile-secure-pix-mobile-secure-pixUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5DD091DD2A8E145336886E9D /* Pods-mobile-secure-pix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-secure-pix.release.xcconfig"; path = "Target Support Files/Pods-mobile-secure-pix/Pods-mobile-secure-pix.release.xcconfig"; sourceTree = "<group>"; };
+		764EE97F73F153A12A6270E7 /* Pods_mobile_secure_pix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobile_secure_pix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B375006A8F1A0D434BFA4335 /* Pods-mobile-secure-pix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-secure-pix.debug.xcconfig"; path = "Target Support Files/Pods-mobile-secure-pix/Pods-mobile-secure-pix.debug.xcconfig"; sourceTree = "<group>"; };
+		BC1EC4179CAEB7180D74CF0F /* Pods-mobile-secure-pix-mobile-secure-pixUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-secure-pix-mobile-secure-pixUITests.debug.xcconfig"; path = "Target Support Files/Pods-mobile-secure-pix-mobile-secure-pixUITests/Pods-mobile-secure-pix-mobile-secure-pixUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CA7A00AAEB3C56A16AFB80FB /* Pods_mobile_secure_pix_mobile_secure_pixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobile_secure_pix_mobile_secure_pixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E109BC0DE6E703BB9E19F1B6 /* Pods-mobile-secure-pixTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-secure-pixTests.debug.xcconfig"; path = "Target Support Files/Pods-mobile-secure-pixTests/Pods-mobile-secure-pixTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2AC6E1BE2AF29DF4009866C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAD07916AA66DFC80C940202 /* Pods_mobile_secure_pix.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AC6E1D42AF29DF6009866C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20F39D8A12CF296EFACBD327 /* Pods_mobile_secure_pixTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AC6E1DE2AF29DF6009866C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE1F9D7D375856C09C0E33F9 /* Pods_mobile_secure_pix_mobile_secure_pixUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2AC6E1B82AF29DF4009866C4 = {
+			isa = PBXGroup;
+			children = (
+				2AC6E1C32AF29DF4009866C4 /* mobile-secure-pix */,
+				2AC6E1DA2AF29DF6009866C4 /* mobile-secure-pixTests */,
+				2AC6E1E42AF29DF6009866C4 /* mobile-secure-pixUITests */,
+				689D1E838CE78E03B4443D6A /* Pods */,
+				5AE0C31D004547DC4B2629EF /* Frameworks */,
+				2AC6E1F42AF2A37C009866C4 /* mobile-secure-pix.app */,
+				2AC6E1F52AF2A37C009866C4 /* mobile-secure-pixTests.xctest */,
+				2AC6E1F62AF2A37C009866C4 /* mobile-secure-pixUITests.xctest */,
+			);
+			sourceTree = "<group>";
+		};
+		2AC6E1C32AF29DF4009866C4 /* mobile-secure-pix */ = {
+			isa = PBXGroup;
+			children = (
+				2AC6E1FA2AF2A5EF009866C4 /* App */,
+				2AC6E1F92AF2A5DF009866C4 /* Views */,
+				2AC6E1F82AF2A5D5009866C4 /* Presenters */,
+				2AC6E1F72AF2A5CD009866C4 /* Models */,
+				2AC6E1CD2AF29DF6009866C4 /* Assets.xcassets */,
+				2AC6E1D22AF29DF6009866C4 /* Info.plist */,
+			);
+			path = "mobile-secure-pix";
+			sourceTree = "<group>";
+		};
+		2AC6E1DA2AF29DF6009866C4 /* mobile-secure-pixTests */ = {
+			isa = PBXGroup;
+			children = (
+				2AC6E1DB2AF29DF6009866C4 /* mobile_secure_pixTests.swift */,
+			);
+			path = "mobile-secure-pixTests";
+			sourceTree = "<group>";
+		};
+		2AC6E1E42AF29DF6009866C4 /* mobile-secure-pixUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2AC6E1E52AF29DF6009866C4 /* mobile_secure_pixUITests.swift */,
+				2AC6E1E72AF29DF6009866C4 /* mobile_secure_pixUITestsLaunchTests.swift */,
+			);
+			path = "mobile-secure-pixUITests";
+			sourceTree = "<group>";
+		};
+		2AC6E1F72AF2A5CD009866C4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2AC6E1F82AF2A5D5009866C4 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		2AC6E1F92AF2A5DF009866C4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2AC6E1FC2AF2A9C1009866C4 /* Controllers */,
+				2AC6E1CF2AF29DF6009866C4 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2AC6E1FA2AF2A5EF009866C4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2AC6E1C42AF29DF4009866C4 /* AppDelegate.swift */,
+				2AC6E1C62AF29DF4009866C4 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		2AC6E1FC2AF2A9C1009866C4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2AC6E1C82AF29DF4009866C4 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5AE0C31D004547DC4B2629EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				764EE97F73F153A12A6270E7 /* Pods_mobile_secure_pix.framework */,
+				CA7A00AAEB3C56A16AFB80FB /* Pods_mobile_secure_pix_mobile_secure_pixUITests.framework */,
+				00DA863ED8CF79A3FF8D01BF /* Pods_mobile_secure_pixTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		689D1E838CE78E03B4443D6A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B375006A8F1A0D434BFA4335 /* Pods-mobile-secure-pix.debug.xcconfig */,
+				5DD091DD2A8E145336886E9D /* Pods-mobile-secure-pix.release.xcconfig */,
+				BC1EC4179CAEB7180D74CF0F /* Pods-mobile-secure-pix-mobile-secure-pixUITests.debug.xcconfig */,
+				59BA3C5A968609101CB215CD /* Pods-mobile-secure-pix-mobile-secure-pixUITests.release.xcconfig */,
+				E109BC0DE6E703BB9E19F1B6 /* Pods-mobile-secure-pixTests.debug.xcconfig */,
+				0621584362EE0568195E65DA /* Pods-mobile-secure-pixTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2AC6E1C02AF29DF4009866C4 /* mobile-secure-pix */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AC6E1EB2AF29DF6009866C4 /* Build configuration list for PBXNativeTarget "mobile-secure-pix" */;
+			buildPhases = (
+				538551ABAC60C547FF239544 /* [CP] Check Pods Manifest.lock */,
+				2AC6E1BD2AF29DF4009866C4 /* Sources */,
+				2AC6E1BE2AF29DF4009866C4 /* Frameworks */,
+				2AC6E1BF2AF29DF4009866C4 /* Resources */,
+				BE0E66FD229A9F16E045416C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "mobile-secure-pix";
+			productName = "mobile-secure-pix";
+			productReference = 2AC6E1F42AF2A37C009866C4 /* mobile-secure-pix.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2AC6E1D62AF29DF6009866C4 /* mobile-secure-pixTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AC6E1EE2AF29DF6009866C4 /* Build configuration list for PBXNativeTarget "mobile-secure-pixTests" */;
+			buildPhases = (
+				4A07A0040E490147EF760286 /* [CP] Check Pods Manifest.lock */,
+				2AC6E1D32AF29DF6009866C4 /* Sources */,
+				2AC6E1D42AF29DF6009866C4 /* Frameworks */,
+				2AC6E1D52AF29DF6009866C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2AC6E1D92AF29DF6009866C4 /* PBXTargetDependency */,
+			);
+			name = "mobile-secure-pixTests";
+			productName = "mobile-secure-pixTests";
+			productReference = 2AC6E1F52AF2A37C009866C4 /* mobile-secure-pixTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2AC6E1E02AF29DF6009866C4 /* mobile-secure-pixUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AC6E1F12AF29DF6009866C4 /* Build configuration list for PBXNativeTarget "mobile-secure-pixUITests" */;
+			buildPhases = (
+				162B290F4211146958FE0927 /* [CP] Check Pods Manifest.lock */,
+				2AC6E1DD2AF29DF6009866C4 /* Sources */,
+				2AC6E1DE2AF29DF6009866C4 /* Frameworks */,
+				2AC6E1DF2AF29DF6009866C4 /* Resources */,
+				039CED1E5AC435771021C2E7 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2AC6E1E32AF29DF6009866C4 /* PBXTargetDependency */,
+			);
+			name = "mobile-secure-pixUITests";
+			productName = "mobile-secure-pixUITests";
+			productReference = 2AC6E1F62AF2A37C009866C4 /* mobile-secure-pixUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2AC6E1B92AF29DF4009866C4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					2AC6E1C02AF29DF4009866C4 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					2AC6E1D62AF29DF6009866C4 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 2AC6E1C02AF29DF4009866C4;
+					};
+					2AC6E1E02AF29DF6009866C4 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 2AC6E1C02AF29DF4009866C4;
+					};
+				};
+			};
+			buildConfigurationList = 2AC6E1BC2AF29DF4009866C4 /* Build configuration list for PBXProject "mobile-secure-pix" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2AC6E1B82AF29DF4009866C4;
+			productRefGroup = 2AC6E1B82AF29DF4009866C4;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2AC6E1C02AF29DF4009866C4 /* mobile-secure-pix */,
+				2AC6E1D62AF29DF6009866C4 /* mobile-secure-pixTests */,
+				2AC6E1E02AF29DF6009866C4 /* mobile-secure-pixUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2AC6E1BF2AF29DF4009866C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AC6E1D12AF29DF6009866C4 /* LaunchScreen.storyboard in Resources */,
+				2AC6E1CE2AF29DF6009866C4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AC6E1D52AF29DF6009866C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AC6E1DF2AF29DF6009866C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		039CED1E5AC435771021C2E7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mobile-secure-pix-mobile-secure-pixUITests/Pods-mobile-secure-pix-mobile-secure-pixUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mobile-secure-pix-mobile-secure-pixUITests/Pods-mobile-secure-pix-mobile-secure-pixUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mobile-secure-pix-mobile-secure-pixUITests/Pods-mobile-secure-pix-mobile-secure-pixUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		162B290F4211146958FE0927 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mobile-secure-pix-mobile-secure-pixUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A07A0040E490147EF760286 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mobile-secure-pixTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		538551ABAC60C547FF239544 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mobile-secure-pix-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE0E66FD229A9F16E045416C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mobile-secure-pix/Pods-mobile-secure-pix-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mobile-secure-pix/Pods-mobile-secure-pix-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mobile-secure-pix/Pods-mobile-secure-pix-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2AC6E1BD2AF29DF4009866C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AC6E1C92AF29DF4009866C4 /* ViewController.swift in Sources */,
+				2AC6E1C52AF29DF4009866C4 /* AppDelegate.swift in Sources */,
+				2AC6E1C72AF29DF4009866C4 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AC6E1D32AF29DF6009866C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AC6E1DC2AF29DF6009866C4 /* mobile_secure_pixTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AC6E1DD2AF29DF6009866C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AC6E1E62AF29DF6009866C4 /* mobile_secure_pixUITests.swift in Sources */,
+				2AC6E1E82AF29DF6009866C4 /* mobile_secure_pixUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2AC6E1D92AF29DF6009866C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2AC6E1C02AF29DF4009866C4 /* mobile-secure-pix */;
+			targetProxy = 2AC6E1D82AF29DF6009866C4 /* PBXContainerItemProxy */;
+		};
+		2AC6E1E32AF29DF6009866C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2AC6E1C02AF29DF4009866C4 /* mobile-secure-pix */;
+			targetProxy = 2AC6E1E22AF29DF6009866C4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2AC6E1CF2AF29DF6009866C4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2AC6E1D02AF29DF6009866C4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2AC6E1E92AF29DF6009866C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2AC6E1EA2AF29DF6009866C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2AC6E1EC2AF29DF6009866C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B375006A8F1A0D434BFA4335 /* Pods-mobile-secure-pix.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RJQ8UQR22D;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "mobile-secure-pix/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iveram.mobile-secure-pix";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2AC6E1ED2AF29DF6009866C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DD091DD2A8E145336886E9D /* Pods-mobile-secure-pix.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RJQ8UQR22D;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "mobile-secure-pix/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iveram.mobile-secure-pix";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2AC6E1EF2AF29DF6009866C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E109BC0DE6E703BB9E19F1B6 /* Pods-mobile-secure-pixTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RJQ8UQR22D;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iveram.mobile-secure-pixTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mobile-secure-pix.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/mobile-secure-pix";
+			};
+			name = Debug;
+		};
+		2AC6E1F02AF29DF6009866C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0621584362EE0568195E65DA /* Pods-mobile-secure-pixTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RJQ8UQR22D;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iveram.mobile-secure-pixTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mobile-secure-pix.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/mobile-secure-pix";
+			};
+			name = Release;
+		};
+		2AC6E1F22AF29DF6009866C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC1EC4179CAEB7180D74CF0F /* Pods-mobile-secure-pix-mobile-secure-pixUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RJQ8UQR22D;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iveram.mobile-secure-pixUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "mobile-secure-pix";
+			};
+			name = Debug;
+		};
+		2AC6E1F32AF29DF6009866C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59BA3C5A968609101CB215CD /* Pods-mobile-secure-pix-mobile-secure-pixUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RJQ8UQR22D;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iveram.mobile-secure-pixUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "mobile-secure-pix";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2AC6E1BC2AF29DF4009866C4 /* Build configuration list for PBXProject "mobile-secure-pix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AC6E1E92AF29DF6009866C4 /* Debug */,
+				2AC6E1EA2AF29DF6009866C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2AC6E1EB2AF29DF6009866C4 /* Build configuration list for PBXNativeTarget "mobile-secure-pix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AC6E1EC2AF29DF6009866C4 /* Debug */,
+				2AC6E1ED2AF29DF6009866C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2AC6E1EE2AF29DF6009866C4 /* Build configuration list for PBXNativeTarget "mobile-secure-pixTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AC6E1EF2AF29DF6009866C4 /* Debug */,
+				2AC6E1F02AF29DF6009866C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2AC6E1F12AF29DF6009866C4 /* Build configuration list for PBXNativeTarget "mobile-secure-pixUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AC6E1F22AF29DF6009866C4 /* Debug */,
+				2AC6E1F32AF29DF6009866C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2AC6E1B92AF29DF4009866C4 /* Project object */;
+}
