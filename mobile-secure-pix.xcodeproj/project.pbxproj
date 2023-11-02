@@ -16,6 +16,7 @@
 		2AC6E1DC2AF29DF6009866C4 /* mobile_secure_pixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E1DB2AF29DF6009866C4 /* mobile_secure_pixTests.swift */; };
 		2AC6E1E62AF29DF6009866C4 /* mobile_secure_pixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E1E52AF29DF6009866C4 /* mobile_secure_pixUITests.swift */; };
 		2AC6E1E82AF29DF6009866C4 /* mobile_secure_pixUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E1E72AF29DF6009866C4 /* mobile_secure_pixUITestsLaunchTests.swift */; };
+		2AC6E1FF2AF2B359009866C4 /* PinCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E1FE2AF2B359009866C4 /* PinCodeView.swift */; };
 		AAD07916AA66DFC80C940202 /* Pods_mobile_secure_pix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764EE97F73F153A12A6270E7 /* Pods_mobile_secure_pix.framework */; };
 		AE1F9D7D375856C09C0E33F9 /* Pods_mobile_secure_pix_mobile_secure_pixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA7A00AAEB3C56A16AFB80FB /* Pods_mobile_secure_pix_mobile_secure_pixUITests.framework */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 		2AC6E1F42AF2A37C009866C4 /* mobile-secure-pix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mobile-secure-pix.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AC6E1F52AF2A37C009866C4 /* mobile-secure-pixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mobile-secure-pixTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AC6E1F62AF2A37C009866C4 /* mobile-secure-pixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mobile-secure-pixUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AC6E1FE2AF2B359009866C4 /* PinCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeView.swift; sourceTree = "<group>"; };
 		59BA3C5A968609101CB215CD /* Pods-mobile-secure-pix-mobile-secure-pixUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-secure-pix-mobile-secure-pixUITests.release.xcconfig"; path = "Target Support Files/Pods-mobile-secure-pix-mobile-secure-pixUITests/Pods-mobile-secure-pix-mobile-secure-pixUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5DD091DD2A8E145336886E9D /* Pods-mobile-secure-pix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-secure-pix.release.xcconfig"; path = "Target Support Files/Pods-mobile-secure-pix/Pods-mobile-secure-pix.release.xcconfig"; sourceTree = "<group>"; };
 		764EE97F73F153A12A6270E7 /* Pods_mobile_secure_pix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobile_secure_pix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +152,7 @@
 		2AC6E1F92AF2A5DF009866C4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2AC6E1FD2AF2B30B009866C4 /* PinCode */,
 				2AC6E1FC2AF2A9C1009866C4 /* Controllers */,
 				2AC6E1CF2AF29DF6009866C4 /* LaunchScreen.storyboard */,
 			);
@@ -171,6 +174,14 @@
 				2AC6E1C82AF29DF4009866C4 /* ViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2AC6E1FD2AF2B30B009866C4 /* PinCode */ = {
+			isa = PBXGroup;
+			children = (
+				2AC6E1FE2AF2B359009866C4 /* PinCodeView.swift */,
+			);
+			path = PinCode;
 			sourceTree = "<group>";
 		};
 		5AE0C31D004547DC4B2629EF /* Frameworks */ = {
@@ -435,6 +446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AC6E1C92AF29DF4009866C4 /* ViewController.swift in Sources */,
+				2AC6E1FF2AF2B359009866C4 /* PinCodeView.swift in Sources */,
 				2AC6E1C52AF29DF4009866C4 /* AppDelegate.swift in Sources */,
 				2AC6E1C72AF29DF4009866C4 /* SceneDelegate.swift in Sources */,
 			);
