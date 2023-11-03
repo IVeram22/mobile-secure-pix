@@ -17,6 +17,14 @@
 		2AC6E1E62AF29DF6009866C4 /* mobile_secure_pixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E1E52AF29DF6009866C4 /* mobile_secure_pixUITests.swift */; };
 		2AC6E1E82AF29DF6009866C4 /* mobile_secure_pixUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E1E72AF29DF6009866C4 /* mobile_secure_pixUITestsLaunchTests.swift */; };
 		2AC6E1FF2AF2B359009866C4 /* PinCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E1FE2AF2B359009866C4 /* PinCodeView.swift */; };
+		2AC6E2052AF52D1C009866C4 /* UIView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E2042AF52D1C009866C4 /* UIView+extensions.swift */; };
+		2AC6E2072AF52E3C009866C4 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E2062AF52E3C009866C4 /* Router.swift */; };
+		2AC6E2092AF52F86009866C4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E2082AF52F86009866C4 /* HomeViewController.swift */; };
+		2AC6E20B2AF53A24009866C4 /* PinCodePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E20A2AF53A24009866C4 /* PinCodePresenter.swift */; };
+		2AC6E20F2AF53D57009866C4 /* PinCodePresenterInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E20E2AF53D57009866C4 /* PinCodePresenterInputDelegate.swift */; };
+		2AC6E2112AF53DB9009866C4 /* PinCodePresenterOutputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E2102AF53DB9009866C4 /* PinCodePresenterOutputDelegate.swift */; };
+		2AC6E2142AF53E0E009866C4 /* ViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E2132AF53E0E009866C4 /* ViewControllerDelegate.swift */; };
+		2AC6E2172AF54599009866C4 /* PinCodeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E2162AF54599009866C4 /* PinCodeRouter.swift */; };
 		AAD07916AA66DFC80C940202 /* Pods_mobile_secure_pix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764EE97F73F153A12A6270E7 /* Pods_mobile_secure_pix.framework */; };
 		AE1F9D7D375856C09C0E33F9 /* Pods_mobile_secure_pix_mobile_secure_pixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA7A00AAEB3C56A16AFB80FB /* Pods_mobile_secure_pix_mobile_secure_pixUITests.framework */; };
 /* End PBXBuildFile section */
@@ -54,6 +62,14 @@
 		2AC6E1F52AF2A37C009866C4 /* mobile-secure-pixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mobile-secure-pixTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AC6E1F62AF2A37C009866C4 /* mobile-secure-pixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mobile-secure-pixUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AC6E1FE2AF2B359009866C4 /* PinCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeView.swift; sourceTree = "<group>"; };
+		2AC6E2042AF52D1C009866C4 /* UIView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extensions.swift"; sourceTree = "<group>"; };
+		2AC6E2062AF52E3C009866C4 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		2AC6E2082AF52F86009866C4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2AC6E20A2AF53A24009866C4 /* PinCodePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodePresenter.swift; sourceTree = "<group>"; };
+		2AC6E20E2AF53D57009866C4 /* PinCodePresenterInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodePresenterInputDelegate.swift; sourceTree = "<group>"; };
+		2AC6E2102AF53DB9009866C4 /* PinCodePresenterOutputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodePresenterOutputDelegate.swift; sourceTree = "<group>"; };
+		2AC6E2132AF53E0E009866C4 /* ViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegate.swift; sourceTree = "<group>"; };
+		2AC6E2162AF54599009866C4 /* PinCodeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeRouter.swift; sourceTree = "<group>"; };
 		59BA3C5A968609101CB215CD /* Pods-mobile-secure-pix-mobile-secure-pixUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-secure-pix-mobile-secure-pixUITests.release.xcconfig"; path = "Target Support Files/Pods-mobile-secure-pix-mobile-secure-pixUITests/Pods-mobile-secure-pix-mobile-secure-pixUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5DD091DD2A8E145336886E9D /* Pods-mobile-secure-pix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-secure-pix.release.xcconfig"; path = "Target Support Files/Pods-mobile-secure-pix/Pods-mobile-secure-pix.release.xcconfig"; sourceTree = "<group>"; };
 		764EE97F73F153A12A6270E7 /* Pods_mobile_secure_pix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobile_secure_pix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +128,7 @@
 				2AC6E1F92AF2A5DF009866C4 /* Views */,
 				2AC6E1F82AF2A5D5009866C4 /* Presenters */,
 				2AC6E1F72AF2A5CD009866C4 /* Models */,
+				2AC6E2022AF52CD2009866C4 /* Helpers */,
 				2AC6E1CD2AF29DF6009866C4 /* Assets.xcassets */,
 				2AC6E1D22AF29DF6009866C4 /* Info.plist */,
 			);
@@ -145,6 +162,7 @@
 		2AC6E1F82AF2A5D5009866C4 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				2AC6E20D2AF53D40009866C4 /* PIN */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -152,7 +170,7 @@
 		2AC6E1F92AF2A5DF009866C4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2AC6E1FD2AF2B30B009866C4 /* PinCode */,
+				2AC6E1FD2AF2B30B009866C4 /* PIN */,
 				2AC6E1FC2AF2A9C1009866C4 /* Controllers */,
 				2AC6E1CF2AF29DF6009866C4 /* LaunchScreen.storyboard */,
 			);
@@ -171,17 +189,71 @@
 		2AC6E1FC2AF2A9C1009866C4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2AC6E2122AF53E00009866C4 /* Delegates */,
 				2AC6E1C82AF29DF4009866C4 /* ViewController.swift */,
+				2AC6E2082AF52F86009866C4 /* HomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		2AC6E1FD2AF2B30B009866C4 /* PinCode */ = {
+		2AC6E1FD2AF2B30B009866C4 /* PIN */ = {
 			isa = PBXGroup;
 			children = (
 				2AC6E1FE2AF2B359009866C4 /* PinCodeView.swift */,
 			);
-			path = PinCode;
+			path = PIN;
+			sourceTree = "<group>";
+		};
+		2AC6E2022AF52CD2009866C4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2AC6E20C2AF53CCC009866C4 /* Router */,
+				2AC6E2032AF52CE3009866C4 /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		2AC6E2032AF52CE3009866C4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2AC6E2042AF52D1C009866C4 /* UIView+extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2AC6E20C2AF53CCC009866C4 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				2AC6E2152AF54588009866C4 /* PIN */,
+				2AC6E2062AF52E3C009866C4 /* Router.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		2AC6E20D2AF53D40009866C4 /* PIN */ = {
+			isa = PBXGroup;
+			children = (
+				2AC6E20A2AF53A24009866C4 /* PinCodePresenter.swift */,
+				2AC6E20E2AF53D57009866C4 /* PinCodePresenterInputDelegate.swift */,
+				2AC6E2102AF53DB9009866C4 /* PinCodePresenterOutputDelegate.swift */,
+			);
+			path = PIN;
+			sourceTree = "<group>";
+		};
+		2AC6E2122AF53E00009866C4 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				2AC6E2132AF53E0E009866C4 /* ViewControllerDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		2AC6E2152AF54588009866C4 /* PIN */ = {
+			isa = PBXGroup;
+			children = (
+				2AC6E2162AF54599009866C4 /* PinCodeRouter.swift */,
+			);
+			path = PIN;
 			sourceTree = "<group>";
 		};
 		5AE0C31D004547DC4B2629EF /* Frameworks */ = {
@@ -446,9 +518,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AC6E1C92AF29DF4009866C4 /* ViewController.swift in Sources */,
+				2AC6E2112AF53DB9009866C4 /* PinCodePresenterOutputDelegate.swift in Sources */,
+				2AC6E2052AF52D1C009866C4 /* UIView+extensions.swift in Sources */,
 				2AC6E1FF2AF2B359009866C4 /* PinCodeView.swift in Sources */,
+				2AC6E20B2AF53A24009866C4 /* PinCodePresenter.swift in Sources */,
+				2AC6E20F2AF53D57009866C4 /* PinCodePresenterInputDelegate.swift in Sources */,
 				2AC6E1C52AF29DF4009866C4 /* AppDelegate.swift in Sources */,
+				2AC6E2072AF52E3C009866C4 /* Router.swift in Sources */,
+				2AC6E2092AF52F86009866C4 /* HomeViewController.swift in Sources */,
+				2AC6E2172AF54599009866C4 /* PinCodeRouter.swift in Sources */,
 				2AC6E1C72AF29DF4009866C4 /* SceneDelegate.swift in Sources */,
+				2AC6E2142AF53E0E009866C4 /* ViewControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,8 +703,8 @@
 				INFOPLIST_FILE = "mobile-secure-pix/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -632,9 +712,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.iveram.mobile-secure-pix";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -651,8 +734,8 @@
 				INFOPLIST_FILE = "mobile-secure-pix/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -660,9 +743,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.iveram.mobile-secure-pix";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
