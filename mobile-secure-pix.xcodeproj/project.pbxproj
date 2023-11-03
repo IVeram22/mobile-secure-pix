@@ -25,6 +25,11 @@
 		2AC6E2112AF53DB9009866C4 /* PinCodePresenterOutputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E2102AF53DB9009866C4 /* PinCodePresenterOutputDelegate.swift */; };
 		2AC6E2142AF53E0E009866C4 /* ViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E2132AF53E0E009866C4 /* ViewControllerDelegate.swift */; };
 		2AC6E2172AF54599009866C4 /* PinCodeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E2162AF54599009866C4 /* PinCodeRouter.swift */; };
+		2AC6E2192AF548F2009866C4 /* LockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E2182AF548F2009866C4 /* LockViewController.swift */; };
+		2AC6E21C2AF55F25009866C4 /* LockPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E21B2AF55F25009866C4 /* LockPresenter.swift */; };
+		2AC6E21E2AF56435009866C4 /* LockOutputPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E21D2AF56435009866C4 /* LockOutputPresenter.swift */; };
+		2AC6E2202AF5644E009866C4 /* LockInputPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E21F2AF5644E009866C4 /* LockInputPresenter.swift */; };
+		2AC6E2232AF567DE009866C4 /* BackToPinCodeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E2222AF567DE009866C4 /* BackToPinCodeRouter.swift */; };
 		AAD07916AA66DFC80C940202 /* Pods_mobile_secure_pix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764EE97F73F153A12A6270E7 /* Pods_mobile_secure_pix.framework */; };
 		AE1F9D7D375856C09C0E33F9 /* Pods_mobile_secure_pix_mobile_secure_pixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA7A00AAEB3C56A16AFB80FB /* Pods_mobile_secure_pix_mobile_secure_pixUITests.framework */; };
 /* End PBXBuildFile section */
@@ -70,6 +75,11 @@
 		2AC6E2102AF53DB9009866C4 /* PinCodePresenterOutputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodePresenterOutputDelegate.swift; sourceTree = "<group>"; };
 		2AC6E2132AF53E0E009866C4 /* ViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegate.swift; sourceTree = "<group>"; };
 		2AC6E2162AF54599009866C4 /* PinCodeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeRouter.swift; sourceTree = "<group>"; };
+		2AC6E2182AF548F2009866C4 /* LockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockViewController.swift; sourceTree = "<group>"; };
+		2AC6E21B2AF55F25009866C4 /* LockPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockPresenter.swift; sourceTree = "<group>"; };
+		2AC6E21D2AF56435009866C4 /* LockOutputPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockOutputPresenter.swift; sourceTree = "<group>"; };
+		2AC6E21F2AF5644E009866C4 /* LockInputPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockInputPresenter.swift; sourceTree = "<group>"; };
+		2AC6E2222AF567DE009866C4 /* BackToPinCodeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToPinCodeRouter.swift; sourceTree = "<group>"; };
 		59BA3C5A968609101CB215CD /* Pods-mobile-secure-pix-mobile-secure-pixUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-secure-pix-mobile-secure-pixUITests.release.xcconfig"; path = "Target Support Files/Pods-mobile-secure-pix-mobile-secure-pixUITests/Pods-mobile-secure-pix-mobile-secure-pixUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5DD091DD2A8E145336886E9D /* Pods-mobile-secure-pix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-secure-pix.release.xcconfig"; path = "Target Support Files/Pods-mobile-secure-pix/Pods-mobile-secure-pix.release.xcconfig"; sourceTree = "<group>"; };
 		764EE97F73F153A12A6270E7 /* Pods_mobile_secure_pix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobile_secure_pix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +172,7 @@
 		2AC6E1F82AF2A5D5009866C4 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				2AC6E21A2AF55F07009866C4 /* Lock */,
 				2AC6E20D2AF53D40009866C4 /* PIN */,
 			);
 			path = Presenters;
@@ -192,6 +203,7 @@
 				2AC6E2122AF53E00009866C4 /* Delegates */,
 				2AC6E1C82AF29DF4009866C4 /* ViewController.swift */,
 				2AC6E2082AF52F86009866C4 /* HomeViewController.swift */,
+				2AC6E2182AF548F2009866C4 /* LockViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -252,8 +264,19 @@
 			isa = PBXGroup;
 			children = (
 				2AC6E2162AF54599009866C4 /* PinCodeRouter.swift */,
+				2AC6E2222AF567DE009866C4 /* BackToPinCodeRouter.swift */,
 			);
 			path = PIN;
+			sourceTree = "<group>";
+		};
+		2AC6E21A2AF55F07009866C4 /* Lock */ = {
+			isa = PBXGroup;
+			children = (
+				2AC6E21B2AF55F25009866C4 /* LockPresenter.swift */,
+				2AC6E21D2AF56435009866C4 /* LockOutputPresenter.swift */,
+				2AC6E21F2AF5644E009866C4 /* LockInputPresenter.swift */,
+			);
+			path = Lock;
 			sourceTree = "<group>";
 		};
 		5AE0C31D004547DC4B2629EF /* Frameworks */ = {
@@ -518,11 +541,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AC6E1C92AF29DF4009866C4 /* ViewController.swift in Sources */,
+				2AC6E2192AF548F2009866C4 /* LockViewController.swift in Sources */,
 				2AC6E2112AF53DB9009866C4 /* PinCodePresenterOutputDelegate.swift in Sources */,
 				2AC6E2052AF52D1C009866C4 /* UIView+extensions.swift in Sources */,
+				2AC6E2232AF567DE009866C4 /* BackToPinCodeRouter.swift in Sources */,
+				2AC6E2202AF5644E009866C4 /* LockInputPresenter.swift in Sources */,
 				2AC6E1FF2AF2B359009866C4 /* PinCodeView.swift in Sources */,
+				2AC6E21E2AF56435009866C4 /* LockOutputPresenter.swift in Sources */,
 				2AC6E20B2AF53A24009866C4 /* PinCodePresenter.swift in Sources */,
 				2AC6E20F2AF53D57009866C4 /* PinCodePresenterInputDelegate.swift in Sources */,
+				2AC6E21C2AF55F25009866C4 /* LockPresenter.swift in Sources */,
 				2AC6E1C52AF29DF4009866C4 /* AppDelegate.swift in Sources */,
 				2AC6E2072AF52E3C009866C4 /* Router.swift in Sources */,
 				2AC6E2092AF52F86009866C4 /* HomeViewController.swift in Sources */,

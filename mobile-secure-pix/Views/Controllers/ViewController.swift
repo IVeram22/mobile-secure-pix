@@ -16,12 +16,13 @@ private enum Constants {
 }
 
 final class ViewController: UIViewController {
+    // MARK: Interface
     private var pinCodeView: PinCodeView!
     private var router: PinCodeRouter!
     private var pinCodePresenter: PinCodePresenter!
     private var currentPinCode = ""
     
-    // MARK: - ViewController Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInterface()

@@ -40,7 +40,14 @@ extension Router: PinCodeRouter {
     }
     
     func lockScreen() {
-        // TODO: Add Lock Screen
+        open(to: LockViewController(), type: .fade, subtype: .fromTop)
     }
     
+}
+
+extension Router: BackToPinCodeRouter {
+    func backToPinScreen() {
+        open(to: ViewController(), type: .fade, subtype: .fromBottom)
+    }
+
 }
