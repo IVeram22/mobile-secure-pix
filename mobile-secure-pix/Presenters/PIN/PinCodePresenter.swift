@@ -17,7 +17,7 @@ final class PinCodePresenter {
     // MARK: - Private
     private func loadPinCode() {
         // TODO: PinManager
-        inputDelegate.setupPinCode(with: "1234")
+        inputDelegate.setupPinCode(with: "1111")
     }
     
 }
