@@ -8,21 +8,46 @@
 import SnapKit
 
 final class HomeViewController: UIViewController {
+//    var navigationController: UINavigationController?
+    
     private let searchBar = UISearchBar()
     private let collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
+    private var router: AddRouter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         setupInterface()
         
     }
     
     @objc private func hideKeyboard() {
         searchBar.resignFirstResponder()
+    }
+    
+    @objc private func addCellTapped() {
+        let actionSheet = UIAlertController(title: "Choose what you want to add", message: nil, preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Image", style: .default, handler: { [self] (action:UIAlertAction) in
+            router.addImage()
+        
+            
+            
+            
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Folder", style: .default, handler: { [self] (action:UIAlertAction) in
+            router.addFolder()
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(actionSheet, animated: true, completion: nil)
     }
     
     // MARK: - Private
@@ -33,6 +58,7 @@ final class HomeViewController: UIViewController {
         
         setupSearchBar()
         setupCollectionView()
+        setupRouter()
     }
     
     private func setupSearchBar() {
@@ -66,6 +92,10 @@ final class HomeViewController: UIViewController {
         collectionView.register(BaseCollectionViewCell.self, forCellWithReuseIdentifier: BaseCollectionViewCell.identifier)
     }
     
+    private func setupRouter() {
+        router = Router(currentViewController: self)
+    }
+    
 }
 
 // MARK: - Extensions
@@ -84,7 +114,7 @@ extension HomeViewController: UICollectionViewDelegate {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -97,7 +127,7 @@ extension HomeViewController: UICollectionViewDataSource {
         switch indexPath.item {
         case 0:
             cell.configure(type: .add)
-            
+            cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addCellTapped)))
         default:
             cell.configure(type: .image)
         }
@@ -112,7 +142,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         let spacing: CGFloat = 20 + 18
         let side = (collectionView.frame.size.width - spacing) / 3
 
-        return CGSize(width: side, height: side) 
+        return CGSize(width: side, height: side)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

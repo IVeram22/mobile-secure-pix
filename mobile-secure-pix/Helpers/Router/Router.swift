@@ -36,7 +36,10 @@ final class Router {
 // MARK: - Extensions
 extension Router: PinCodeRouter {
     func giveAccess() {
-        open(to: HomeViewController(), type: .moveIn, subtype: .fromLeft)
+        let controller = HomeViewController()
+        let navigationController = UINavigationController(rootViewController: controller)
+        
+        open(to: navigationController, type: .moveIn, subtype: .fromLeft)
     }
     
     func lockScreen() {
@@ -49,5 +52,18 @@ extension Router: BackToPinCodeRouter {
     func backToPinScreen() {
         open(to: ViewController(), type: .fade, subtype: .fromBottom)
     }
+    
+}
 
+extension Router: AddRouter {
+    func addImage() {
+        
+        currentViewController.navigationController?.pushViewController(AddImageViewController(), animated: true)
+//        open(to: AddImageViewController(), type: .moveIn, subtype: .fromRight)
+    }
+    
+    func addFolder() {
+        
+    }
+    
 }
