@@ -8,8 +8,6 @@
 import SnapKit
 
 final class HomeViewController: UIViewController {
-//    var navigationController: UINavigationController?
-    
     private let searchBar = UISearchBar()
     private let collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -20,9 +18,6 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
         setupInterface()
         
     }
@@ -34,15 +29,13 @@ final class HomeViewController: UIViewController {
     @objc private func addCellTapped() {
         let actionSheet = UIAlertController(title: "Choose what you want to add", message: nil, preferredStyle: .actionSheet)
         
-        actionSheet.addAction(UIAlertAction(title: "Image", style: .default, handler: { [self] (action:UIAlertAction) in
+        actionSheet.addAction(UIAlertAction(
+            title: "Image", style: .default, handler: { [self] (action:UIAlertAction) in
             router.addImage()
-        
-            
-            
-            
         }))
         
-        actionSheet.addAction(UIAlertAction(title: "Folder", style: .default, handler: { [self] (action:UIAlertAction) in
+        actionSheet.addAction(UIAlertAction(
+            title: "Folder", style: .default, handler: { [self] (action:UIAlertAction) in
             router.addFolder()
         }))
         
@@ -121,8 +114,6 @@ extension HomeViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BaseCollectionViewCell.identifier, for: indexPath) as? BaseCollectionViewCell else {
             fatalError("Unable to dequeue cell")
         }
-        
-        cell.layer.cornerRadius = 10
         
         switch indexPath.item {
         case 0:
