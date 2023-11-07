@@ -20,6 +20,10 @@ extension UIView {
         backgroundColor = .white
     }
     
+    func setupSubView() {
+        backgroundColor = .systemGray6
+    }
+    
     func shakeAnimation(repeatCount: Float) {
         let shakeAnimation = CABasicAnimation(keyPath: "position")
         shakeAnimation.duration = Constants.Shake.duration
@@ -36,6 +40,10 @@ extension UIView {
     
     func stopShakeAnimation() {
         self.layer.removeAnimation(forKey: "shake")
+    }
+    
+    func setCornerRadius(with radius: CGFloat = 10) {
+        layer.cornerRadius = radius
     }
     
 }

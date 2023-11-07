@@ -30,7 +30,8 @@ final class BaseCollectionViewCell: UICollectionViewCell {
     // MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .systemGray6
+        setupSubView()
+        setCornerRadius()
         self.type = .add
         setup()
         changeImage()
