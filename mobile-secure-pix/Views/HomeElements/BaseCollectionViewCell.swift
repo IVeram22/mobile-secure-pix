@@ -32,6 +32,7 @@ final class BaseCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         setupSubView()
         setCornerRadius()
+        layer.masksToBounds = true
         self.type = .add
         setup()
         changeImage()

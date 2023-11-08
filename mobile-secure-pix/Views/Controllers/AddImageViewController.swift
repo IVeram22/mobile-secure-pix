@@ -9,36 +9,86 @@ import SnapKit
 
 private enum Constants {
     static let imageSize: CGFloat = 371
+    
+    enum ImageView {
+        static let topInset: CGFloat = 95
+    }
+    
+    enum LikeButton {
+        static let topInset: CGFloat = 7
+        static let rightInset: CGFloat = -11
+        static let width: CGFloat = 43
+    }
+    
+    enum UpdateButton {
+        static let topInset: CGFloat = 7
+        static let leftInset: CGFloat = 11
+        static let width: CGFloat = 41
+    }
+    
+    enum TextField {
+        static let topInset: CGFloat = 15
+        static let leftInset: CGFloat = 11
+        static let rightInset: CGFloat = -11
+        static let height: CGFloat = 35
+    }
+    
 }
 
 class AddImageViewController: UIViewController {
     // MARK: Interface
     private let imageView = UIImageView(frame: .zero)
     private let likeButton = UIButton(frame: .zero)
-    private var isLike = false
     private let updateButton = UIButton(frame: .zero)
     private let textField = UITextField(frame: .zero)
+    // MARK: Data
+    private var isLike = false
+    // MARK: Presenter
+    private let presenter: ImagesOutputPresenter = ImagesPresenter()
+    // MARK: Navigation
+    private var router: HomeRouter!
     
     // MARK: - Livecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInterface()
-        
+        setupRouter()
     }
     
+    @objc private func saveButtonTapped() {
+        saveData()
+    }
     
+    @objc private func setImageTapped() {
+        setImage()
+    }
+    
+    @objc private func likeButtonTapped() {
+        isLike.toggle()
+        switch isLike {
+        case true: likeButton.setImage(UIImage(named: "isLikeTrue"), for: .normal)
+        case false: likeButton.setImage(UIImage(named: "isLikeFalse"), for: .normal)
+        }
+    }
+    
+    @objc private func hideKeyboard() {
+        textField.resignFirstResponder()
+    }
     
     // MARK: - Private
     private func setupInterface() {
-        view.setupMainView()
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
-        navigationItem.title = "Add new Image"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveButtonTapped))
-        
+        setupView()
         setupImageView()
         setupLikeButton()
         setupUpdateButton()
         setupTextField()
+    }
+    
+    private func setupView() {
+        view.setupMainView()
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
+        navigationItem.title = "Add new Image"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveButtonTapped))
     }
     
     private func setupImageView() {
@@ -51,7 +101,7 @@ class AddImageViewController: UIViewController {
         view.addSubview(imageView)
         
         imageView.snp.makeConstraints { make in
-            make.top.equalTo(95)
+            make.top.equalTo(Constants.ImageView.topInset)
             make.centerX.equalToSuperview()
             make.width.height.equalTo(Constants.imageSize)
         }
@@ -67,9 +117,9 @@ class AddImageViewController: UIViewController {
         view.addSubview(likeButton)
         
         likeButton.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-11)
-            make.top.equalTo(imageView.snp.bottom).offset(7)
-            make.width.height.equalTo(43)
+            make.right.equalToSuperview().offset(Constants.LikeButton.rightInset)
+            make.top.equalTo(imageView.snp.bottom).offset(Constants.LikeButton.topInset)
+            make.width.height.equalTo(Constants.LikeButton.width)
         }
         
         likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
@@ -82,9 +132,9 @@ class AddImageViewController: UIViewController {
         view.addSubview(updateButton)
         
         updateButton.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(11)
-            make.top.equalTo(imageView.snp.bottom).offset(7)
-            make.width.height.equalTo(41)
+            make.left.equalToSuperview().offset(Constants.UpdateButton.leftInset)
+            make.top.equalTo(imageView.snp.bottom).offset(Constants.UpdateButton.topInset)
+            make.width.height.equalTo(Constants.UpdateButton.width)
         }
         
         updateButton.addTarget(self, action: #selector(setImageTapped), for: .touchUpInside)
@@ -100,16 +150,16 @@ class AddImageViewController: UIViewController {
         view.addSubview(textField)
         
         textField.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(11)
-            make.right.equalToSuperview().offset(-11)
-            make.top.equalTo(likeButton.snp.bottom).offset(15)
-            make.height.equalTo(35)
-            
+            make.left.equalToSuperview().offset(Constants.TextField.leftInset)
+            make.right.equalToSuperview().offset(Constants.TextField.rightInset)
+            make.top.equalTo(likeButton.snp.bottom).offset(Constants.TextField.topInset)
+            make.height.equalTo(Constants.TextField.height)
         }
-        
     }
     
-    
+    private func setupRouter() {
+        router = Router(currentViewController: self)
+    }
     
     private func setImage() {
         let actionSheet = UIAlertController(title: "Choose Image Source", message: nil, preferredStyle: .actionSheet)
@@ -139,30 +189,13 @@ class AddImageViewController: UIViewController {
     }
     
     private func saveData() {
+        presenter.save(ImageDataModel(
+            data: ImageModel(identifier: "\(UUID().uuidString).jpg", isLiked: isLike, description: textField.text!),
+            image: imageView.image))
         
+        router.comeBack()
     }
     
-    @objc private func saveButtonTapped() {
-        saveData()
-    }
-    
-    @objc private func setImageTapped() {
-        setImage()
-    }
-    
-    @objc private func likeButtonTapped() {
-        isLike.toggle()
-        switch isLike {
-        case true: likeButton.setImage(UIImage(named: "isLikeTrue"), for: .normal)
-        case false: likeButton.setImage(UIImage(named: "isLikeFalse"), for: .normal)
-        }
-        
-    }
-    
-    @objc private func hideKeyboard() {
-        textField.resignFirstResponder()
-    }
-
 }
 
 // MARK: - Extensions
