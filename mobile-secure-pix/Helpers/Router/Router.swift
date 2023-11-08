@@ -63,3 +63,10 @@ extension Router: AddRouter {
     }
     
 }
+
+extension Router: HomeRouter {
+    func comeBack() {
+        currentViewController.navigationController?.popToRootViewController(animated: true)
+    }
+    
+}

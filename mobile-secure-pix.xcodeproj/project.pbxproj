@@ -34,6 +34,13 @@
 		2AC6E22A2AF7B85D009866C4 /* AddImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E2292AF7B85D009866C4 /* AddImageViewController.swift */; };
 		2AC6E22D2AF7B947009866C4 /* AddRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E22C2AF7B947009866C4 /* AddRouter.swift */; };
 		2AC6E2382AFA8654009866C4 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E2372AFA8653009866C4 /* ImageModel.swift */; };
+		2AC6E23A2AFB9C49009866C4 /* UserDefaults+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E2392AFB9C49009866C4 /* UserDefaults+extensions.swift */; };
+		2AC6E23C2AFBC229009866C4 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E23B2AFBC229009866C4 /* UserDefaultsManager.swift */; };
+		2AC6E23E2AFBC25D009866C4 /* ImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E23D2AFBC25D009866C4 /* ImageFileManager.swift */; };
+		2AC6E2402AFBC2C2009866C4 /* ImageDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E23F2AFBC2C2009866C4 /* ImageDataModel.swift */; };
+		2AC6E2422AFBC2E4009866C4 /* ImageDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E2412AFBC2E4009866C4 /* ImageDataManager.swift */; };
+		2AC6E2462AFBC453009866C4 /* ImagesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E2452AFBC453009866C4 /* ImagesPresenter.swift */; };
+		2AC6E2492AFBD4A8009866C4 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6E2482AFBD4A8009866C4 /* HomeRouter.swift */; };
 		AAD07916AA66DFC80C940202 /* Pods_mobile_secure_pix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764EE97F73F153A12A6270E7 /* Pods_mobile_secure_pix.framework */; };
 		AE1F9D7D375856C09C0E33F9 /* Pods_mobile_secure_pix_mobile_secure_pixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA7A00AAEB3C56A16AFB80FB /* Pods_mobile_secure_pix_mobile_secure_pixUITests.framework */; };
 /* End PBXBuildFile section */
@@ -88,6 +95,13 @@
 		2AC6E2292AF7B85D009866C4 /* AddImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageViewController.swift; sourceTree = "<group>"; };
 		2AC6E22C2AF7B947009866C4 /* AddRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRouter.swift; sourceTree = "<group>"; };
 		2AC6E2372AFA8653009866C4 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		2AC6E2392AFB9C49009866C4 /* UserDefaults+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+extensions.swift"; sourceTree = "<group>"; };
+		2AC6E23B2AFBC229009866C4 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		2AC6E23D2AFBC25D009866C4 /* ImageFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileManager.swift; sourceTree = "<group>"; };
+		2AC6E23F2AFBC2C2009866C4 /* ImageDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataModel.swift; sourceTree = "<group>"; };
+		2AC6E2412AFBC2E4009866C4 /* ImageDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataManager.swift; sourceTree = "<group>"; };
+		2AC6E2452AFBC453009866C4 /* ImagesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesPresenter.swift; sourceTree = "<group>"; };
+		2AC6E2482AFBD4A8009866C4 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		59BA3C5A968609101CB215CD /* Pods-mobile-secure-pix-mobile-secure-pixUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-secure-pix-mobile-secure-pixUITests.release.xcconfig"; path = "Target Support Files/Pods-mobile-secure-pix-mobile-secure-pixUITests/Pods-mobile-secure-pix-mobile-secure-pixUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5DD091DD2A8E145336886E9D /* Pods-mobile-secure-pix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-secure-pix.release.xcconfig"; path = "Target Support Files/Pods-mobile-secure-pix/Pods-mobile-secure-pix.release.xcconfig"; sourceTree = "<group>"; };
 		764EE97F73F153A12A6270E7 /* Pods_mobile_secure_pix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobile_secure_pix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,7 +187,9 @@
 		2AC6E1F72AF2A5CD009866C4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2AC6E2372AFA8653009866C4 /* ImageModel.swift */,
+				2AC6E2442AFBC31C009866C4 /* FileManager */,
+				2AC6E2432AFBC2FA009866C4 /* UserDefaults */,
+				2AC6E2412AFBC2E4009866C4 /* ImageDataManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -183,6 +199,7 @@
 			children = (
 				2AC6E21A2AF55F07009866C4 /* Lock */,
 				2AC6E20D2AF53D40009866C4 /* PIN */,
+				2AC6E2452AFBC453009866C4 /* ImagesPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -240,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				2AC6E2042AF52D1C009866C4 /* UIView+extensions.swift */,
+				2AC6E2392AFB9C49009866C4 /* UserDefaults+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -247,6 +265,7 @@
 		2AC6E20C2AF53CCC009866C4 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				2AC6E2472AFBD498009866C4 /* Home */,
 				2AC6E22B2AF7B91E009866C4 /* Add */,
 				2AC6E2152AF54588009866C4 /* PIN */,
 				2AC6E2062AF52E3C009866C4 /* Router.swift */,
@@ -305,6 +324,32 @@
 				2AC6E22C2AF7B947009866C4 /* AddRouter.swift */,
 			);
 			path = Add;
+			sourceTree = "<group>";
+		};
+		2AC6E2432AFBC2FA009866C4 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				2AC6E2372AFA8653009866C4 /* ImageModel.swift */,
+				2AC6E23B2AFBC229009866C4 /* UserDefaultsManager.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		2AC6E2442AFBC31C009866C4 /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				2AC6E23F2AFBC2C2009866C4 /* ImageDataModel.swift */,
+				2AC6E23D2AFBC25D009866C4 /* ImageFileManager.swift */,
+			);
+			path = FileManager;
+			sourceTree = "<group>";
+		};
+		2AC6E2472AFBD498009866C4 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2AC6E2482AFBD4A8009866C4 /* HomeRouter.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		5AE0C31D004547DC4B2629EF /* Frameworks */ = {
@@ -574,19 +619,26 @@
 				2AC6E2052AF52D1C009866C4 /* UIView+extensions.swift in Sources */,
 				2AC6E2232AF567DE009866C4 /* BackToPinCodeRouter.swift in Sources */,
 				2AC6E2202AF5644E009866C4 /* LockInputPresenter.swift in Sources */,
+				2AC6E2402AFBC2C2009866C4 /* ImageDataModel.swift in Sources */,
 				2AC6E1FF2AF2B359009866C4 /* PinCodeView.swift in Sources */,
+				2AC6E23E2AFBC25D009866C4 /* ImageFileManager.swift in Sources */,
+				2AC6E2492AFBD4A8009866C4 /* HomeRouter.swift in Sources */,
+				2AC6E23C2AFBC229009866C4 /* UserDefaultsManager.swift in Sources */,
 				2AC6E21E2AF56435009866C4 /* LockOutputPresenter.swift in Sources */,
 				2AC6E20B2AF53A24009866C4 /* PinCodePresenter.swift in Sources */,
 				2AC6E22A2AF7B85D009866C4 /* AddImageViewController.swift in Sources */,
 				2AC6E2282AF65827009866C4 /* BaseCollectionViewCell.swift in Sources */,
+				2AC6E2462AFBC453009866C4 /* ImagesPresenter.swift in Sources */,
 				2AC6E20F2AF53D57009866C4 /* PinCodePresenterInputDelegate.swift in Sources */,
 				2AC6E22D2AF7B947009866C4 /* AddRouter.swift in Sources */,
 				2AC6E2382AFA8654009866C4 /* ImageModel.swift in Sources */,
+				2AC6E23A2AFB9C49009866C4 /* UserDefaults+extensions.swift in Sources */,
 				2AC6E21C2AF55F25009866C4 /* LockPresenter.swift in Sources */,
 				2AC6E1C52AF29DF4009866C4 /* AppDelegate.swift in Sources */,
 				2AC6E2072AF52E3C009866C4 /* Router.swift in Sources */,
 				2AC6E2092AF52F86009866C4 /* HomeViewController.swift in Sources */,
 				2AC6E2172AF54599009866C4 /* PinCodeRouter.swift in Sources */,
+				2AC6E2422AFBC2E4009866C4 /* ImageDataManager.swift in Sources */,
 				2AC6E1C72AF29DF4009866C4 /* SceneDelegate.swift in Sources */,
 				2AC6E2142AF53E0E009866C4 /* ViewControllerDelegate.swift in Sources */,
 			);

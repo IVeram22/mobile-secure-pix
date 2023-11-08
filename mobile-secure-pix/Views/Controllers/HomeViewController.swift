@@ -7,19 +7,48 @@
 
 import SnapKit
 
+private enum Constants {
+    enum Cell {
+        static let spacing: CGFloat = 20
+        static let topInset: CGFloat = 9
+        static let leftInset: CGFloat = 17
+        static let rightInset: CGFloat = 17
+        static let numberOfElementsPerLine: CGFloat = 3
+        static let minimumLineSpacing: CGFloat = 10
+    }
+    
+    enum SearchBar {
+        static let topInset: CGFloat = 55
+        static let height: CGFloat = 43
+    }
+    
+}
+
 final class HomeViewController: UIViewController {
+    // MARK: Interface
     private let searchBar = UISearchBar()
     private let collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
+    // MARK: Data
+    private let manager = ImageDataManager()
+    private var data: [ImageDataModel] = []
+    // MARK: Presenter
+    private let presenter = ImagesPresenter()
+    // MARK: Navigation
     private var router: AddRouter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInterface()
-        
+        setupPresenter()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.loadData()
     }
     
     @objc private func hideKeyboard() {
@@ -46,12 +75,15 @@ final class HomeViewController: UIViewController {
     // MARK: - Private
     private func setupInterface() {
         view.setupMainView()
-        view.addGestureRecognizer(
-            UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
         
         setupSearchBar()
         setupCollectionView()
         setupRouter()
+    }
+    
+    private func setupPresenter() {
+        presenter.setImagesInputPresenter(with: self)
     }
     
     private func setupSearchBar() {
@@ -64,13 +96,12 @@ final class HomeViewController: UIViewController {
         
         searchBar.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
-            make.top.equalTo(55)
-            make.height.equalTo(43)
+            make.top.equalTo(Constants.SearchBar.topInset)
+            make.height.equalTo(Constants.SearchBar.height)
         }
     }
     
     private func setupCollectionView() {
-        
         view.addSubview(collectionView)
         
         collectionView.snp.makeConstraints { make in
@@ -107,7 +138,8 @@ extension HomeViewController: UICollectionViewDelegate {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1
+        // MARK: Increased by 1, as the add button comes first
+        data.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -121,6 +153,7 @@ extension HomeViewController: UICollectionViewDataSource {
             cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addCellTapped)))
         default:
             cell.configure(type: .image)
+            cell.changeImage(with: data[indexPath.item - 1].image)
         }
         
         return cell
@@ -130,20 +163,33 @@ extension HomeViewController: UICollectionViewDataSource {
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let spacing: CGFloat = 20 + 18
-        let side = (collectionView.frame.size.width - spacing) / 3
+        let spacing: CGFloat = Constants.Cell.spacing + Constants.Cell.leftInset + Constants.Cell.rightInset
+        let side = (collectionView.frame.size.width - spacing) / Constants.Cell.numberOfElementsPerLine
 
         return CGSize(width: side, height: side)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        10
+        Constants.Cell.minimumLineSpacing
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let leftInset: CGFloat = 9
-        let rightInset: CGFloat = 9
-        return UIEdgeInsets(top: 9, left: leftInset, bottom: 0, right: rightInset)
+        return UIEdgeInsets(
+            top: Constants.Cell.topInset,
+            left: Constants.Cell.leftInset,
+            bottom: 0,
+            right: Constants.Cell.rightInset)
+    }
+    
+}
+
+extension HomeViewController: ImagesInputPresenter {
+    func loadData(with images: [ImageDataModel]) {
+        data = images
+    }
+    
+    func reloadView() {
+        collectionView.reloadData()
     }
     
 }
