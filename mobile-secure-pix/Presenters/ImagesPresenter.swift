@@ -8,7 +8,7 @@
 import Foundation
 
 final class ImagesPresenter {
-    private var imagesInputPresenter: ImagesInputPresenter?
+    private weak var imagesInputPresenter: ImagesInputPresenter?
     private let manager = ImageDataManager()
     
     func setImagesInputPresenter(with delegate: ImagesInputPresenter) {
