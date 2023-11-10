@@ -27,6 +27,14 @@ final class BaseCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
+    private let likeImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        return imageView
+    }()
+    
     // MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -52,6 +60,19 @@ final class BaseCollectionViewCell: UICollectionViewCell {
         imageView.image = UIImage(named: type.rawValue)
         guard let image = image else { return }
         imageView.image = image
+    }
+    
+    func addLike(_ isLike: Bool) {
+        guard isLike else { return }
+        
+        likeImageView.image = UIImage(named: "isLikeTrue")
+        contentView.addSubview(likeImageView)
+        
+        likeImageView.snp.makeConstraints { make in
+            make.top.left.equalTo(5)
+            make.width.height.equalTo(17)
+        }
+        
     }
     
     // MARK: - Private

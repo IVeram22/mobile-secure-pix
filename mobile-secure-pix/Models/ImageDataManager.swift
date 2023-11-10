@@ -20,6 +20,10 @@ final class ImageDataManager {
                 image: file.load(name: ImageModel.identifier)))
         }
         
+        images.sort { first, second in
+            first.data.isLiked
+        }
+        
         return images
     }
     
