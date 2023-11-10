@@ -15,22 +15,22 @@ private enum Constants {
     }
     
     enum LikeButton {
-        static let topInset: CGFloat = 7
-        static let rightInset: CGFloat = -11
+        static let topInset: CGFloat = 99
+        static let rightInset: CGFloat = -17
         static let width: CGFloat = 43
     }
     
     enum UpdateButton {
-        static let topInset: CGFloat = 7
-        static let leftInset: CGFloat = 11
-        static let width: CGFloat = 41
+        static let topInset: CGFloat = 99
+        static let leftInset: CGFloat = 17
+        static let width: CGFloat = 43
     }
     
     enum TextField {
-        static let topInset: CGFloat = 15
+        static let topInset: CGFloat = 21
         static let leftInset: CGFloat = 11
         static let rightInset: CGFloat = -11
-        static let height: CGFloat = 35
+        static let height: CGFloat = 75
     }
     
 }
@@ -89,6 +89,8 @@ class AddImageViewController: UIViewController {
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
         navigationItem.title = "Add new Image"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveButtonTapped))
+        
+        navigationItem.rightBarButtonItem?.isEnabled = false
     }
     
     private func setupImageView() {
@@ -118,11 +120,12 @@ class AddImageViewController: UIViewController {
         
         likeButton.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(Constants.LikeButton.rightInset)
-            make.top.equalTo(imageView.snp.bottom).offset(Constants.LikeButton.topInset)
+            make.top.equalToSuperview().offset(Constants.LikeButton.topInset)
             make.width.height.equalTo(Constants.LikeButton.width)
         }
         
         likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
+        likeButton.isHidden = true
     }
     
     private func setupUpdateButton() {
@@ -133,11 +136,12 @@ class AddImageViewController: UIViewController {
         
         updateButton.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(Constants.UpdateButton.leftInset)
-            make.top.equalTo(imageView.snp.bottom).offset(Constants.UpdateButton.topInset)
+            make.top.equalToSuperview().offset(Constants.UpdateButton.topInset)
             make.width.height.equalTo(Constants.UpdateButton.width)
         }
         
         updateButton.addTarget(self, action: #selector(setImageTapped), for: .touchUpInside)
+        updateButton.isHidden = true
     }
     
     private func setupTextField() {
@@ -152,7 +156,7 @@ class AddImageViewController: UIViewController {
         textField.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(Constants.TextField.leftInset)
             make.right.equalToSuperview().offset(Constants.TextField.rightInset)
-            make.top.equalTo(likeButton.snp.bottom).offset(Constants.TextField.topInset)
+            make.top.equalTo(imageView.snp.bottom).offset(Constants.TextField.topInset)
             make.height.equalTo(Constants.TextField.height)
         }
     }
@@ -210,6 +214,12 @@ extension AddImageViewController: UINavigationControllerDelegate, UIImagePickerC
         } else if let originalImage = info[.originalImage] as? UIImage {
             imageView.image = originalImage
         }
+        
+        [likeButton, updateButton].forEach { button in
+            button.isHidden = false
+        }
+        
+        navigationItem.rightBarButtonItem?.isEnabled = true
         
         picker.dismiss(animated: true, completion: nil)
     }
