@@ -152,8 +152,10 @@ extension HomeViewController: UICollectionViewDataSource {
             cell.configure(type: .add)
             cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addCellTapped)))
         default:
+            let imageData = data[indexPath.item - 1]
             cell.configure(type: .image)
-            cell.changeImage(with: data[indexPath.item - 1].image)
+            cell.changeImage(with: imageData.image)
+            cell.addLike(imageData.data.isLiked)
         }
         
         return cell
