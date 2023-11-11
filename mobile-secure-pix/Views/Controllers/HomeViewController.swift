@@ -40,6 +40,7 @@ final class HomeViewController: UIViewController {
     // MARK: Navigation
     private var router: AddRouter!
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInterface()
@@ -152,10 +153,10 @@ extension HomeViewController: UICollectionViewDataSource {
             cell.configure(type: .add)
             cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addCellTapped)))
         default:
-            let imageData = data[indexPath.item - 1]
+            let image = data[indexPath.item - 1]
             cell.configure(type: .image)
-            cell.changeImage(with: imageData.image)
-            cell.addLike(imageData.data.isLiked)
+            cell.changeImage(with: image.image)
+            cell.addLike(image.data.isLiked)
         }
         
         return cell

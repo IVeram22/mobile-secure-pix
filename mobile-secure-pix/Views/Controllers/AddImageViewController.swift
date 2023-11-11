@@ -9,19 +9,21 @@ import SnapKit
 
 private enum Constants {
     static let imageSize: CGFloat = 371
+    static let keyboardScreenEndFrame: CGFloat = 77
     
     enum ImageView {
+        static let top: CGFloat = 5
         static let topInset: CGFloat = 95
     }
     
     enum LikeButton {
-        static let topInset: CGFloat = 99
+        static let topInset: CGFloat = 5
         static let rightInset: CGFloat = -17
         static let width: CGFloat = 43
     }
     
     enum UpdateButton {
-        static let topInset: CGFloat = 99
+        static let topInset: CGFloat = 5
         static let leftInset: CGFloat = 17
         static let width: CGFloat = 43
     }
@@ -37,6 +39,7 @@ private enum Constants {
 
 class AddImageViewController: UIViewController {
     // MARK: Interface
+    private var container: UIView!
     private let imageView = UIImageView(frame: .zero)
     private let likeButton = UIButton(frame: .zero)
     private let updateButton = UIButton(frame: .zero)
@@ -53,6 +56,7 @@ class AddImageViewController: UIViewController {
         super.viewDidLoad()
         setupInterface()
         setupRouter()
+        registerForkeyboardNotifications()
     }
     
     @objc private func saveButtonTapped() {
@@ -72,7 +76,24 @@ class AddImageViewController: UIViewController {
     }
     
     @objc private func hideKeyboard() {
-        textField.resignFirstResponder()
+        self.textField.resignFirstResponder()
+        UIView.animate(withDuration: 0.3) {
+            self.container.frame.origin.y = Constants.ImageView.topInset
+        }
+    }
+    
+    @objc private func keyboardWillShow(_ notification: NSNotification) {
+        guard let userInfo = notification.userInfo,
+              let animationDuration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue else { return }
+        
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            hideKeyboard()
+        } else {
+            container.frame.origin.y -= Constants.keyboardScreenEndFrame
+            UIView.animate(withDuration: animationDuration) {
+                self.view.layoutIfNeeded()
+            }
+        }
     }
     
     // MARK: - Private
@@ -84,13 +105,25 @@ class AddImageViewController: UIViewController {
         setupTextField()
     }
     
+    private func registerForkeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     private func setupView() {
         view.setupMainView()
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
         navigationItem.title = "Add new Image"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveButtonTapped))
-        
         navigationItem.rightBarButtonItem?.isEnabled = false
+        
+        container = UIView(frame: CGRect(
+            x: 0,
+            y: Constants.ImageView.topInset,
+            width: view.frame.width,
+            height: view.frame.height))
+        
+        view.addSubview(container)
     }
     
     private func setupImageView() {
@@ -100,10 +133,10 @@ class AddImageViewController: UIViewController {
         
         imageView.image = UIImage(named: "Add")
         
-        view.addSubview(imageView)
+        container.addSubview(imageView)
         
         imageView.snp.makeConstraints { make in
-            make.top.equalTo(Constants.ImageView.topInset)
+            make.top.equalTo(Constants.ImageView.top)
             make.centerX.equalToSuperview()
             make.width.height.equalTo(Constants.imageSize)
         }
@@ -116,7 +149,7 @@ class AddImageViewController: UIViewController {
         likeButton.translatesAutoresizingMaskIntoConstraints = false
         likeButton.setImage(UIImage(named: "isLikeFalse"), for: .normal)
         
-        view.addSubview(likeButton)
+        container.addSubview(likeButton)
         
         likeButton.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(Constants.LikeButton.rightInset)
@@ -132,7 +165,7 @@ class AddImageViewController: UIViewController {
         updateButton.translatesAutoresizingMaskIntoConstraints = false
         updateButton.setImage(UIImage(named: "Update"), for: .normal)
         
-        view.addSubview(updateButton)
+        container.addSubview(updateButton)
         
         updateButton.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(Constants.UpdateButton.leftInset)
@@ -151,7 +184,9 @@ class AddImageViewController: UIViewController {
         textField.setupSubView()
         textField.setCornerRadius()
         
-        view.addSubview(textField)
+        textField.delegate = self
+        
+        container.addSubview(textField)
         
         textField.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(Constants.TextField.leftInset)
@@ -222,6 +257,14 @@ extension AddImageViewController: UINavigationControllerDelegate, UIImagePickerC
         navigationItem.rightBarButtonItem?.isEnabled = true
         
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+extension AddImageViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        hideKeyboard()
+        return false
     }
     
 }
