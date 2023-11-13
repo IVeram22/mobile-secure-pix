@@ -17,21 +17,16 @@ private enum Constants {
         static let minimumLineSpacing: CGFloat = 10
     }
     
-    enum SearchBar {
-        static let topInset: CGFloat = 55
-        static let height: CGFloat = 43
-    }
-    
 }
 
 final class HomeViewController: UIViewController {
     // MARK: Interface
-    private let searchBar = UISearchBar()
     private let collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
+    private var imageSliderView = ImageSliderView(frame: .zero)
     // MARK: Data
     private let manager = ImageDataManager()
     private var data: [ImageDataModel] = []
@@ -52,10 +47,6 @@ final class HomeViewController: UIViewController {
         presenter.loadData()
     }
     
-    @objc private func hideKeyboard() {
-        searchBar.resignFirstResponder()
-    }
-    
     @objc private func addCellTapped() {
         let actionSheet = UIAlertController(title: "Choose what you want to add", message: nil, preferredStyle: .actionSheet)
         
@@ -73,12 +64,15 @@ final class HomeViewController: UIViewController {
         present(actionSheet, animated: true, completion: nil)
     }
     
+    @objc private func imageViewingClosed() {
+        self.navigationController?.navigationBar.isHidden = false
+        imageSliderView.removeFromSuperview()
+    }
+    
     // MARK: - Private
     private func setupInterface() {
         view.setupMainView()
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
-        
-        setupSearchBar()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: nil)
         setupCollectionView()
         setupRouter()
     }
@@ -87,53 +81,40 @@ final class HomeViewController: UIViewController {
         presenter.setImagesInputPresenter(with: self)
     }
     
-    private func setupSearchBar() {
-        searchBar.delegate = self
-        searchBar.placeholder = "Search"
-        navigationItem.titleView = searchBar
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(searchBar)
-        
-        searchBar.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
-            make.top.equalTo(Constants.SearchBar.topInset)
-            make.height.equalTo(Constants.SearchBar.height)
-        }
-    }
-    
     private func setupCollectionView() {
-        view.addSubview(collectionView)
-        
-        collectionView.snp.makeConstraints { make in
-            make.top.equalTo(searchBar.snp.bottom)
-            make.left.right.equalToSuperview()
-            make.height.equalToSuperview()
-        }
-        
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        collectionView.register(BaseCollectionViewCell.self, forCellWithReuseIdentifier: BaseCollectionViewCell.identifier)
+        collectionView.register(
+            BaseCollectionViewCell.self,
+            forCellWithReuseIdentifier: "BaseCollectionViewCell.identifier")
+        
+        view.addSubview(collectionView)
+        collectionView.snp.makeConstraints { make in
+            make.top.height.left.right.equalToSuperview()
+        }
     }
     
     private func setupRouter() {
         router = Router(currentViewController: self)
     }
     
+    private func setupImageSliderView(with index: Int) {
+        imageSliderView = ImageSliderView(frame: CGRect(origin: view.frame.origin, size: view.frame.size), data: data, index: index)
+        self.navigationController?.navigationBar.isHidden = true
+        view.addSubview(imageSliderView)
+        imageSliderView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageViewingClosed)))
+    }
+
 }
 
 // MARK: - Extensions
-extension HomeViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if let searchText = searchBar.text {
-            print("Searching for: \(searchText)")
-        }
-        searchBar.resignFirstResponder()
-    }
-}
-
 extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let index = indexPath.item - 1
+        guard index >= 0 else { return }
+        setupImageSliderView(with: index)
+    }
     
 }
 
@@ -144,16 +125,17 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BaseCollectionViewCell.identifier, for: indexPath) as? BaseCollectionViewCell else {
-            fatalError("Unable to dequeue cell")
-        }
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "BaseCollectionViewCell.identifier",
+            for: indexPath) as? BaseCollectionViewCell else { fatalError("Unable to dequeue cell") }
         
         switch indexPath.item {
         case 0:
             cell.configure(type: .add)
             cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addCellTapped)))
         default:
-            let image = data[indexPath.item - 1]
+            let index = indexPath.item - 1
+            let image = data[index]
             cell.configure(type: .image)
             cell.changeImage(with: image.image)
             cell.addLike(image.data.isLiked)
