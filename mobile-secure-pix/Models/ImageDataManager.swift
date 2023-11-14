@@ -20,10 +20,6 @@ final class ImageDataManager {
                 image: file.load(name: ImageModel.identifier)))
         }
         
-        images.sort { first, second in
-            first.data.isLiked
-        }
-        
         return images
     }
     
@@ -37,6 +33,11 @@ final class ImageDataManager {
     func delete(image imageData: ImageDataModel) {
         file.delete(name: imageData.data.identifier)
         data.delete(image: imageData.data)
+    }
+    
+    func update(image imageData: ImageDataModel) {
+        delete(image: imageData)
+        save(image: imageData)
     }
     
 }

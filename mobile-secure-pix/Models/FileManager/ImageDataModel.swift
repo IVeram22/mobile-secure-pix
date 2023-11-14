@@ -8,6 +8,6 @@
 import SnapKit
 
 struct ImageDataModel {
-    let data: ImageModel
-    let image: UIImage?
+    var data: ImageModel
+    var image: UIImage?
 }

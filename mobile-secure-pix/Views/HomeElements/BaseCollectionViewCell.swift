@@ -14,6 +14,13 @@ enum HomeCellValues: String {
     case image = "No Image"
 }
 
+private enum Constants {
+    enum LikeImageView {
+        static let topAndLeftInset: CGFloat = 5
+        static let size: CGFloat = 17
+    }
+}
+
 final class BaseCollectionViewCell: UICollectionViewCell {
     static var identifier: String { "\(Self.self)"}
     
@@ -62,17 +69,15 @@ final class BaseCollectionViewCell: UICollectionViewCell {
         imageView.image = image
     }
     
-    func addLike(_ isLike: Bool) {
-        guard isLike else { return }
-        
+    func addLike(_ isLike: Bool = false) {
+        likeImageView.isHidden = !isLike
         likeImageView.image = UIImage(named: "isLikeTrue")
         contentView.addSubview(likeImageView)
         
         likeImageView.snp.makeConstraints { make in
-            make.top.left.equalTo(5)
-            make.width.height.equalTo(17)
+            make.top.left.equalTo(Constants.LikeImageView.topAndLeftInset)
+            make.width.height.equalTo(Constants.LikeImageView.size)
         }
-        
     }
     
     // MARK: - Private

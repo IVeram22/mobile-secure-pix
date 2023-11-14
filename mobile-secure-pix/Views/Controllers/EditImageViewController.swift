@@ -1,8 +1,8 @@
 //
-//  AddImageViewController.swift
+//  EditImageViewController.swift
 //  mobile-secure-pix
 //
-//  Created by Ivan Veramyou on 5.11.23.
+//  Created by Ivan Veramyou on 14.11.23.
 //
 
 import SnapKit
@@ -39,30 +39,38 @@ private enum Constants {
     
 }
 
-final class AddImageViewController: UIViewController {
+final class EditImageViewController: UIViewController {
     // MARK: Interface
     private var container: UIView!
     private let imageView = UIImageView(frame: .zero)
     private let likeButton = UIButton(frame: .zero)
-    private let updateButton = UIButton(frame: .zero)
     private let textField = UITextField(frame: .zero)
     // MARK: Data
-    private var isLike = false
+    private var isLike: Bool = false
+    private var imageData: ImageDataModel!
     // MARK: Presenter
     private let presenter: ImagesOutputPresenter = ImagesPresenter()
-    // MARK: Navigation
-    private var router: HomeRouter!
     
     // MARK: - Livecycle
+    init(imageData: ImageDataModel) {
+        super.init(nibName: nil, bundle: nil)
+        self.imageData = imageData
+        self.isLike = imageData.data.isLiked
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInterface()
-        setupRouter()
         registerForkeyboardNotifications()
     }
     
-    @objc private func saveButtonTapped() {
-        saveData()
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        updateData()
     }
     
     @objc private func setImageTapped() {
@@ -100,7 +108,6 @@ final class AddImageViewController: UIViewController {
         setupView()
         setupImageView()
         setupLikeButton()
-        setupUpdateButton()
         setupTextField()
     }
     
@@ -112,8 +119,7 @@ final class AddImageViewController: UIViewController {
     private func setupView() {
         view.setupMainView()
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
-        navigationItem.title = "Add new Image"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveButtonTapped))
+        navigationItem.title = "Refresh Image"
         navigationItem.rightBarButtonItem?.isEnabled = false
         
         container = UIView(frame: CGRect(
@@ -130,7 +136,7 @@ final class AddImageViewController: UIViewController {
         imageView.setupSubView()
         imageView.setCornerRadius()
         
-        imageView.image = UIImage(named: "Add")
+        imageView.image = imageData.image
         
         container.addSubview(imageView)
         
@@ -146,7 +152,8 @@ final class AddImageViewController: UIViewController {
     
     private func setupLikeButton() {
         likeButton.translatesAutoresizingMaskIntoConstraints = false
-        likeButton.setImage(UIImage(named: "isLikeFalse"), for: .normal)
+        
+        likeButton.setImage(UIImage(named: imageData.data.isLiked ? "isLikeTrue" : "isLikeFalse"), for: .normal)
         
         container.addSubview(likeButton)
         
@@ -157,23 +164,6 @@ final class AddImageViewController: UIViewController {
         }
         
         likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
-        likeButton.isHidden = true
-    }
-    
-    private func setupUpdateButton() {
-        updateButton.translatesAutoresizingMaskIntoConstraints = false
-        updateButton.setImage(UIImage(named: "Update"), for: .normal)
-        
-        container.addSubview(updateButton)
-        
-        updateButton.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(Constants.UpdateButton.leftInset)
-            make.top.equalToSuperview().offset(Constants.UpdateButton.topInset)
-            make.width.height.equalTo(Constants.UpdateButton.width)
-        }
-        
-        updateButton.addTarget(self, action: #selector(setImageTapped), for: .touchUpInside)
-        updateButton.isHidden = true
     }
     
     private func setupTextField() {
@@ -193,24 +183,21 @@ final class AddImageViewController: UIViewController {
             make.top.equalTo(imageView.snp.bottom).offset(Constants.TextField.topInset)
             make.height.equalTo(Constants.TextField.height)
         }
-    }
-    
-    private func setupRouter() {
-        router = Router(currentViewController: self)
-    }
-    
-    private func saveData() {
-        presenter.save(ImageDataModel(
-            data: ImageModel(identifier: "\(UUID().uuidString).jpg", isLiked: isLike, description: textField.text!),
-            image: imageView.image))
         
-        router.comeBack()
+        textField.text = imageData.data.description
+    }
+    
+    private func updateData() {
+        imageData.image = imageView.image
+        imageData.data.description = textField.text ?? ""
+        imageData.data.isLiked = isLike
+        presenter.update(imageData)
     }
     
 }
 
 // MARK: - Extensions
-extension AddImageViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+extension EditImageViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true)
     }
@@ -222,10 +209,6 @@ extension AddImageViewController: UINavigationControllerDelegate, UIImagePickerC
             imageView.image = originalImage
         }
         
-        [likeButton, updateButton].forEach { button in
-            button.isHidden = false
-        }
-        
         navigationItem.rightBarButtonItem?.isEnabled = true
         
         picker.dismiss(animated: true, completion: nil)
@@ -233,7 +216,7 @@ extension AddImageViewController: UINavigationControllerDelegate, UIImagePickerC
     
 }
 
-extension AddImageViewController: UITextFieldDelegate {
+extension EditImageViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         hideKeyboard()
         return false

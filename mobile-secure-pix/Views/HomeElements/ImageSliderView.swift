@@ -40,6 +40,8 @@ final class ImageSliderView: UIView {
     private var likeButton = UIButton(frame: .zero)
     // MARK: Data
     private var images: [ImageDataModel] = []
+    private var currentIdentifier: String = ""
+    private var status = false
     private var currentIndex = 0 {
         didSet {
             switch currentIndex {
@@ -58,7 +60,9 @@ final class ImageSliderView: UIView {
         super.init(frame: frame)
         images = data
         currentIndex = index
+        currentIdentifier = data[index].data.identifier
         setupInterface()
+        status = true
     }
     
     override init(frame: CGRect) {
@@ -77,6 +81,30 @@ final class ImageSliderView: UIView {
     @objc private func swipeNext() {
         currentIndex += 1
         didSwipe()
+    }
+    
+    // MARK: - Public
+    func getCurrentIndex() -> Int {
+        currentIndex
+    }
+    
+    func setCurrentIndex(with index: Int) {
+        currentIndex = index
+        didSwipe()
+    }
+    
+    func update(with data: [ImageDataModel]) {
+        images = data
+        if status {
+            for index in 0...images.count {
+                if images[index].data.identifier == currentIdentifier {
+                    currentIndex = index
+                    break
+                }
+            }
+            
+            didSwipe()
+        }
     }
     
     // MARK: - Private
@@ -205,6 +233,7 @@ final class ImageSliderView: UIView {
     }
     
     private func didSwipe() {
+        currentIdentifier = images[currentIndex].data.identifier
         updateImages()
         setDescription()
         setLikeStatus()

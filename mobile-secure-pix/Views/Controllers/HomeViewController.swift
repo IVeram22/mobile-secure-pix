@@ -45,10 +45,14 @@ final class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter.loadData()
+        imageSliderView.update(with: data)
     }
     
     @objc private func addCellTapped() {
-        let actionSheet = UIAlertController(title: "Choose what you want to add", message: nil, preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(
+            title: "Choose what you want to add",
+            message: nil,
+            preferredStyle: .actionSheet)
         
         actionSheet.addAction(UIAlertAction(
             title: "Image", style: .default, handler: { [self] (action:UIAlertAction) in
@@ -65,14 +69,21 @@ final class HomeViewController: UIViewController {
     }
     
     @objc private func imageViewingClosed() {
-        self.navigationController?.navigationBar.isHidden = false
+        setupFilterButton()
         imageSliderView.removeFromSuperview()
+        imageSliderView = ImageSliderView(frame: .zero)
+    }
+    
+    @objc private func editImage() {
+        navigationController?.pushViewController(
+            EditImageViewController(imageData: data[imageSliderView.getCurrentIndex()]),
+            animated: true)
     }
     
     // MARK: - Private
     private func setupInterface() {
         view.setupMainView()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: nil)
+        setupFilterButton()
         setupCollectionView()
         setupRouter()
     }
@@ -100,12 +111,34 @@ final class HomeViewController: UIViewController {
     }
     
     private func setupImageSliderView(with index: Int) {
-        imageSliderView = ImageSliderView(frame: CGRect(origin: view.frame.origin, size: view.frame.size), data: data, index: index)
-        self.navigationController?.navigationBar.isHidden = true
+        imageSliderView = ImageSliderView(
+            frame: CGRect(origin: view.frame.origin, size: view.frame.size),
+            data: data,
+            index: index)
+        imageSliderView.addGestureRecognizer(UITapGestureRecognizer(
+            target: self,
+            action: #selector(imageViewingClosed)))
+        setupEditButton()
         view.addSubview(imageSliderView)
-        imageSliderView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageViewingClosed)))
+        
+    }
+    
+    private func setupFilterButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Filter",
+            style: .plain,
+            target: self,
+            action: nil)
     }
 
+    private func setupEditButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Edit",
+            style: .plain,
+            target: self,
+            action: #selector(editImage))
+    }
+    
 }
 
 // MARK: - Extensions
