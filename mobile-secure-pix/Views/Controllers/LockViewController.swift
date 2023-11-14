@@ -7,7 +7,7 @@
 
 import SnapKit
 
-class LockViewController: UIViewController {
+final class LockViewController: UIViewController {
     // MARK: Interface
     private let titleLabel: UILabel = {
         let label = UILabel()

@@ -26,6 +26,7 @@ protocol ImagesOutputPresenter: AnyObject {
     func loadData()
     func save(_ imageData: ImageDataModel)
     func delete(_ imageData: ImageDataModel)
+    func update(_ imageData: ImageDataModel)
 }
 
 protocol ImagesInputPresenter: AnyObject {
@@ -47,5 +48,8 @@ extension ImagesPresenter: ImagesOutputPresenter {
         manager.save(image: imageData)
     }
     
+    func update(_ imageData: ImageDataModel) {
+        manager.update(image: imageData)
+    }
     
 }
