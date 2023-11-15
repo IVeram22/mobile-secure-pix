@@ -45,7 +45,7 @@ extension ImagesPresenter: ImagesOutputPresenter {
     }
     
     func delete(_ imageData: ImageDataModel) {
-        manager.save(image: imageData)
+        manager.delete(image: imageData)
     }
     
     func update(_ imageData: ImageDataModel) {

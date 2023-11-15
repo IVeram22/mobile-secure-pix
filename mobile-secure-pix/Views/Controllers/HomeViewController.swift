@@ -118,6 +118,7 @@ final class HomeViewController: UIViewController {
         imageSliderView.addGestureRecognizer(UITapGestureRecognizer(
             target: self,
             action: #selector(imageViewingClosed)))
+        imageSliderView.setImageSliderDelegate(with: self)
         setupEditButton()
         view.addSubview(imageSliderView)
         
@@ -208,6 +209,28 @@ extension HomeViewController: ImagesInputPresenter {
     
     func reloadView() {
         collectionView.reloadData()
+    }
+    
+}
+
+
+
+protocol ImageSliderDelegate: AnyObject {
+    func deleteImage(with index: Int)
+    func likeImege(with index: Int)
+}
+
+
+extension HomeViewController: ImageSliderDelegate {
+    func deleteImage(with index: Int) {
+        presenter.delete(data[index])
+        imageViewingClosed()
+        presenter.loadData()
+    }
+    
+    func likeImege(with index: Int) {
+        data[index].data.isLiked.toggle()
+        presenter.update(data[index])
     }
     
 }

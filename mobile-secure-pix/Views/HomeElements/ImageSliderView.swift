@@ -5,7 +5,7 @@
 //  Created by Ivan Veramyou on 13.11.23.
 //
 
-import UIKit
+import SnapKit
 
 private enum Constants {
     static let containerAlpha: CGFloat =  0.85
@@ -24,7 +24,11 @@ private enum Constants {
     
     enum LikeButton {
         static let topInset: CGFloat = 7
-        static let width: CGFloat = 43
+        static let width: CGFloat = 29
+    }
+    
+    enum TrashButton {
+        static let width: CGFloat = 35
     }
     
 }
@@ -35,6 +39,7 @@ final class ImageSliderView: UIView {
     private var selectImage = UIImageView(frame: .zero)
     private var previousImage = UIImageView(frame: .zero)
     private var nextImage = UIImageView(frame: .zero)
+    private var trashButton = UIButton(frame: .zero)
     
     private var descriptionLabel = UILabel(frame: .zero)
     private var likeButton = UIButton(frame: .zero)
@@ -54,6 +59,8 @@ final class ImageSliderView: UIView {
             }
         }
     }
+    
+    private weak var imageSliderDelegate: ImageSliderDelegate?
     
     // MARK: - Lifecycle
     init(frame: CGRect, data: [ImageDataModel], index: Int) {
@@ -83,6 +90,14 @@ final class ImageSliderView: UIView {
         didSwipe()
     }
     
+    @objc private func likeButtonTapped() {
+        imageSliderDelegate?.likeImege(with: currentIndex)
+    }
+    
+    @objc private func deleteButtonTapped() {
+        imageSliderDelegate?.deleteImage(with: currentIndex)
+    }
+    
     // MARK: - Public
     func getCurrentIndex() -> Int {
         currentIndex
@@ -107,12 +122,17 @@ final class ImageSliderView: UIView {
         }
     }
     
+    func setImageSliderDelegate(with delegate: ImageSliderDelegate) {
+        imageSliderDelegate = delegate
+    }
+    
     // MARK: - Private
     private func setupInterface() {
         setupView()
         showSelectImage()
         showPreviousImage()
         showNextImage()
+        showTrashButton()
         updateImages()
         setupDescriptionLabel()
         setDescription()
@@ -173,6 +193,17 @@ final class ImageSliderView: UIView {
         nextImage.alpha = Constants.startAlpha
     }
     
+    private func showTrashButton() {
+        trashButton.setImage(UIImage(named: "Trash"), for: .normal)
+        addSubview(trashButton)
+        trashButton.snp.makeConstraints { make in
+            make.top.equalTo(selectImage.snp.bottom)
+            make.right.equalTo(selectImage.snp.right)
+            make.width.height.equalTo(Constants.TrashButton.width)
+        }
+        trashButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+    }
+    
     private func setPreviousImage() {
         let index = currentIndex - 1 >= 0 ? currentIndex - 1 : images.count - 1
         previousImage.image = images[index].image
@@ -218,12 +249,12 @@ final class ImageSliderView: UIView {
         addSubview(likeButton)
         
         likeButton.snp.makeConstraints { make in
-            
-            make.centerX.equalToSuperview()
-            make.top.equalTo(descriptionLabel.snp.bottom).offset(Constants.LikeButton.topInset)
+            make.top.equalTo(selectImage.snp.bottom)
+            make.right.equalTo(selectImage.snp.right).offset(-Constants.TrashButton.width)
             make.width.height.equalTo(Constants.LikeButton.width)
         }
         
+        likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
     }
     
     private func setLikeStatus() {
